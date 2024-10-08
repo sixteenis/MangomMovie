@@ -10,9 +10,9 @@
 		06B527F32CB51E2C001B36DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F22CB51E2C001B36DF /* AppDelegate.swift */; };
 		06B527F52CB51E2C001B36DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F42CB51E2C001B36DF /* SceneDelegate.swift */; };
 		06B527F72CB51E2C001B36DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F62CB51E2C001B36DF /* ViewController.swift */; };
-		06B527FA2CB51E2C001B36DF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 06B527F92CB51E2C001B36DF /* Base */; };
 		06B527FC2CB51E2E001B36DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B527FB2CB51E2E001B36DF /* Assets.xcassets */; };
 		06B527FF2CB51E2E001B36DF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 06B527FE2CB51E2E001B36DF /* Base */; };
+		06B528072CB51E4B001B36DF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06B528062CB51E4B001B36DF /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +20,10 @@
 		06B527F22CB51E2C001B36DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B527F42CB51E2C001B36DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		06B527F62CB51E2C001B36DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		06B527F92CB51E2C001B36DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06B527FB2CB51E2E001B36DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06B527FE2CB51E2E001B36DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06B528002CB51E2E001B36DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06B528062CB51E4B001B36DF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +40,7 @@
 		06B527E62CB51E2C001B36DF = {
 			isa = PBXGroup;
 			children = (
+				06B528062CB51E4B001B36DF /* .gitignore */,
 				06B527F12CB51E2C001B36DF /* MangomMovie */,
 				06B527F02CB51E2C001B36DF /* Products */,
 			);
@@ -58,13 +59,20 @@
 			children = (
 				06B527F22CB51E2C001B36DF /* AppDelegate.swift */,
 				06B527F42CB51E2C001B36DF /* SceneDelegate.swift */,
-				06B527F62CB51E2C001B36DF /* ViewController.swift */,
-				06B527F82CB51E2C001B36DF /* Main.storyboard */,
+				06B528082CB51EF1001B36DF /* View */,
 				06B527FB2CB51E2E001B36DF /* Assets.xcassets */,
 				06B527FD2CB51E2E001B36DF /* LaunchScreen.storyboard */,
 				06B528002CB51E2E001B36DF /* Info.plist */,
 			);
 			path = MangomMovie;
+			sourceTree = "<group>";
+		};
+		06B528082CB51EF1001B36DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06B527F62CB51E2C001B36DF /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +133,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B528072CB51E4B001B36DF /* .gitignore in Resources */,
 				06B527FC2CB51E2E001B36DF /* Assets.xcassets in Resources */,
 				06B527FF2CB51E2E001B36DF /* Base in Resources */,
-				06B527FA2CB51E2C001B36DF /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		06B527F82CB51E2C001B36DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				06B527F92CB51E2C001B36DF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		06B527FD2CB51E2E001B36DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,11 +295,13 @@
 				DEVELOPMENT_TEAM = G9LS4YQCM2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MangomMovie/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mangom;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +309,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sixteenis.MangomMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -323,11 +329,13 @@
 				DEVELOPMENT_TEAM = G9LS4YQCM2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MangomMovie/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Mangom;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +343,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sixteenis.MangomMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
