@@ -20,7 +20,22 @@
 		06B528172CB520FA001B36DF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 06B528162CB520FA001B36DF /* RxCocoa */; };
 		06B528192CB520FA001B36DF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 06B528182CB520FA001B36DF /* RxSwift */; };
 		06B5281C2CB52125001B36DF /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 06B5281B2CB52125001B36DF /* IQKeyboardManagerSwift */; };
+		06B5281D2CB53787001B36DF /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 06B5280D2CB52096001B36DF /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		06B5281E2CB53787001B36DF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				06B5281D2CB53787001B36DF /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06B527EF2CB51E2C001B36DF /* MangomMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangomMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +114,7 @@
 				06B527EB2CB51E2C001B36DF /* Sources */,
 				06B527EC2CB51E2C001B36DF /* Frameworks */,
 				06B527ED2CB51E2C001B36DF /* Resources */,
+				06B5281E2CB53787001B36DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
