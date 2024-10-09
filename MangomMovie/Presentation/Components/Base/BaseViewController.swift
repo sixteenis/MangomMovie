@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
         appearance.shadowColor = nil
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.tintColor = .asDarkBlack
+        navigationController?.navigationBar.tintColor = .asWhite
     }
 }
 // MARK: - 알림
