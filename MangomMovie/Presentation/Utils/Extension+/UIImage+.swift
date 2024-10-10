@@ -19,6 +19,7 @@ extension UIImage {
     static let asDown = UIImage(systemName: "square.and.arrow.down")
     static let asSmailing = UIImage(systemName: "face.smiling")
     static let asPlus = UIImage(systemName: "plus")
+    static let asTrsh = UIImage(systemName: "trash.fill")
     
     static let testImage = UIImage(named: "test")
 }
