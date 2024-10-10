@@ -7,7 +7,13 @@
 
 import Foundation
 
+enum ContentType {
+    case movie
+    case tv
+}
+
 struct MainItem {
+    let type: ContentType
     let id: Int
     let imagePath: String
     let genre: [String]
@@ -16,17 +22,20 @@ struct MainItem {
 }
 
 struct PosterItem {
+    let type: ContentType
     let id: Int
     let imagePath: String
 }
 
 struct ListItem {
+    let type: ContentType
     let id: Int
     let imagePath: String
     let title: String
 }
 
 struct DetailItem {
+    let type: ContentType
     let id: Int
     let backdropImagePath: String
     let title: String
