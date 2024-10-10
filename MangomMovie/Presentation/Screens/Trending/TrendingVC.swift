@@ -12,6 +12,7 @@ import RxCocoa
 import SnapKit
 
 final class TrendingVC: BaseViewController {
+    private let disposeBag = DisposeBag()
     private let navTVButton = UIButton()
     private let navSearchButton = UIButton()
     
@@ -23,9 +24,31 @@ final class TrendingVC: BaseViewController {
     private let playButton = UIButton()
     private let listButton = UIButton()
     
+    private let nowMovieHeader = UILabel()
+    private lazy var nowMovieCollection = UICollectionView(frame: .zero, collectionViewLayout: self.horizontalColletionLayout())
+    
+    private let  nowTVHeader = UILabel()
+    private lazy var nowTVCollection = UICollectionView(frame: .zero, collectionViewLayout: self.horizontalColletionLayout())
+    
+    private let testArr = Observable.just([1,2,3,4,5,6,7,8,9,10])
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNav()
+    }
+    override func bindData() {
+        //테스트용 임시 무비
+        testArr
+            .bind(to: nowMovieCollection.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
+                
+            }.disposed(by: disposeBag)
+        //테스트용 임시 티비
+        testArr
+            .bind(to: nowTVCollection.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
+                
+            }.disposed(by: disposeBag)
     }
     private func setNav() {
         navTVButton.setTitle("", for: .normal)
@@ -36,32 +59,33 @@ final class TrendingVC: BaseViewController {
         let tv = UIBarButtonItem(customView: navTVButton)
         let search = UIBarButtonItem(customView: navSearchButton)
         navigationItem.rightBarButtonItems = [search, tv]
+        
     }
     // MARK: - 연결 부분
     override func setUpHierarchy() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         setUpBigPostViewHierarchy()
+        setUpCollectionHierarchy()
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        addGradientToBigPostView()
-    }
+    
     // MARK: - 레이아웃 부분
     override func setUpLayout() {
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.horizontalEdges.bottom.equalTo(view)
+            make.edges.equalTo(view)
         }
         contentView.snp.makeConstraints { make in
             make.width.equalTo(scrollView.snp.width)
             make.edges.equalTo(scrollView)
         }
         setUpBigPostViewLayout()
+        setUpCollectionLayout()
     }
     // MARK: - 데이터 부분
     override func setUpView() {
+        self.scrollView.showsVerticalScrollIndicator = false
         setUpBigPostView()
+        setUpCollectionView()
     }
 }
 // MARK: - 큰 포스터 부분
@@ -122,16 +146,75 @@ private extension TrendingVC {
         // MARK: - 변경되는 데이터
         bigPostView.image = UIImage.testImage
         genreLabel.text = "애니메이션 가족 코미디 드라마"
-        
+        DispatchQueue.main.async {
+            self.addGradientToBigPostView()
+        }
     }
     func addGradientToBigPostView() {
         // 그라데이션 추가
         let gradient = CAGradientLayer()
         gradient.frame = bigPostView.bounds
         gradient.colors = [UIColor.clear.cgColor, UIColor.asGray.cgColor]
-        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.5, y: 1.2)
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.4)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
         
         bigPostView.layer.insertSublayer(gradient, at: 0)
     }
+}
+
+// MARK: - 스크롤 포스터 부분
+private extension TrendingVC {
+    func setUpCollectionHierarchy() {
+        contentView.addSubview(nowMovieHeader)
+        contentView.addSubview(nowMovieCollection)
+        
+        contentView.addSubview(nowTVHeader)
+        contentView.addSubview(nowTVCollection)
+    }
+    func setUpCollectionLayout() {
+        nowMovieHeader.snp.makeConstraints { make in
+            make.top.equalTo(bigPostView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(10)
+        }
+        nowMovieCollection.snp.makeConstraints { make in
+            make.top.equalTo(nowMovieHeader.snp.bottom).offset(5)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(UIScreen.main.bounds.height / 5)
+        }
+        
+        nowTVHeader.snp.makeConstraints { make in
+            make.top.equalTo(nowMovieCollection.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(10)
+        }
+        nowTVCollection.snp.makeConstraints { make in
+            make.top.equalTo(nowTVHeader.snp.bottom).offset(5)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(UIScreen.main.bounds.height / 5)
+            make.bottom.equalToSuperview()
+        }
+    }
+    func setUpCollectionView() {
+        nowMovieHeader.text = "지금 뜨는 영화"
+        nowMovieHeader.textColor = .asFont
+        nowMovieCollection.backgroundColor = .asBackground
+        nowMovieCollection.register(PosterCollectionCell.self, forCellWithReuseIdentifier: PosterCollectionCell.id)
+        
+        nowTVHeader.text = "지금 뜨는 TV 시리즈"
+        nowTVHeader.textColor = .asFont
+        nowTVCollection.backgroundColor = .asBackground
+        nowTVCollection.register(PosterCollectionCell.self, forCellWithReuseIdentifier: PosterCollectionCell.id)
+    }
+    func horizontalColletionLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width / 4
+        let height = UIScreen.main.bounds.height / 5
+        
+        layout.itemSize = CGSize(width: width, height: height)
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        
+        return layout
+        
+    }
+    
 }
