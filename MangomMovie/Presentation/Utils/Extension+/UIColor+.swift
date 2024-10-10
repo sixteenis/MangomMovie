@@ -16,6 +16,7 @@ extension UIColor {
     static let asGray = UIColor.gray
     static let asWhite = UIColor(hex: "FFFFFF")
     static let asBlack = UIColor(hex: "000000")
+    static let asPlaceholder = UIColor.lightGray
 }
 
 extension UIColor {
