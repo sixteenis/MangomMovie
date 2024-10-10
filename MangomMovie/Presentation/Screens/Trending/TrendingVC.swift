@@ -27,7 +27,7 @@ final class TrendingVC: BaseViewController {
     private let nowMovieHeader = UILabel()
     private lazy var nowMovieCollection = UICollectionView(frame: .zero, collectionViewLayout: self.horizontalColletionLayout())
     
-    private let  nowTVHeader = UILabel()
+    private let nowTVHeader = UILabel()
     private lazy var nowTVCollection = UICollectionView(frame: .zero, collectionViewLayout: self.horizontalColletionLayout())
     
     private let testArr = Observable.just([1,2,3,4,5,6,7,8,9,10])
