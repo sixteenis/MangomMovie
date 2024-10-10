@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0656702C2CB7B61B00CF58CB /* PosterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0656702B2CB7B61B00CF58CB /* PosterCollectionCell.swift */; };
 		06B527F32CB51E2C001B36DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F22CB51E2C001B36DF /* AppDelegate.swift */; };
 		06B527F52CB51E2C001B36DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F42CB51E2C001B36DF /* SceneDelegate.swift */; };
 		06B527FC2CB51E2E001B36DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B527FB2CB51E2E001B36DF /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0656702B2CB7B61B00CF58CB /* PosterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionCell.swift; sourceTree = "<group>"; };
 		06B527EF2CB51E2C001B36DF /* MangomMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangomMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B527F22CB51E2C001B36DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B527F42CB51E2C001B36DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		06B5282E2CB53D35001B36DF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0656702B2CB7B61B00CF58CB /* PosterCollectionCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				06B528462CB6B73B001B36DF /* DetailVC.swift in Sources */,
 				06B528272CB5399E001B36DF /* SearchVC.swift in Sources */,
 				06B528432CB6B551001B36DF /* UIImage+.swift in Sources */,
+				0656702C2CB7B61B00CF58CB /* PosterCollectionCell.swift in Sources */,
 				06B528412CB6B273001B36DF /* FetchImageProtocol.swift in Sources */,
 				06B528252CB53995001B36DF /* TrendingVC.swift in Sources */,
 				06B528382CB6B1C8001B36DF /* BaseViewController.swift in Sources */,

@@ -15,11 +15,18 @@ final class TabBarController: UITabBarController {
         tabBar.tintColor = .asWhite
         tabBar.unselectedItemTintColor = .asGray
         tabBar.backgroundColor = .asDarkBlack
-
+        
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .asDarkBlack
+        
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
+        
         let Trending = TrendingVC()
         let Search = SearchVC()
         let Like = LikeVC()
-
+        
         let TrendingNav = UINavigationController(rootViewController: Trending)
         TrendingNav.tabBarItem = UITabBarItem(title: "Home", image: .ashome, tag: 0)
         
