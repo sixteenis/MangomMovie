@@ -9,23 +9,23 @@ import Foundation
 
 enum MediaContent {
     struct Trend {
-        let movieList: [PosterItem]
-        let tvList: [PosterItem]
+        let movieList: [CompactMedia]
+        let tvList: [CompactMedia]
     }
 
     struct Recommend {
-        let list: [ListItem]
+        let list: [CompactMedia]
     }
 
     struct SearchResult {
-        let list: [PosterItem]
+        let list: [CompactMedia]
     }
 
     struct Favorite {
-        let list: [ListItem]
+        let list: [CompactMedia]
     }
 
     struct Similar {
-        let list: [PosterItem]
+        let list: [CompactMedia]
     }
 }
