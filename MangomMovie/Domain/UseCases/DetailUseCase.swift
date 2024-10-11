@@ -9,9 +9,9 @@ import Foundation
 import RxSwift
 
 protocol DetailUseCase {
-    func fetchDetailItem(source: CompactMedia) -> Single<Result<DetailMedia, Error>>
+    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>>
     func fetchSimilarList(type: MediaType, id: Int) -> Single<Result<[CompactMedia], Error>>
-    func addFavoriteItem(_ item: CompactMedia)
+    func addFavoriteItem(_ item: CompactMedia) -> Bool
 }
 
 //final class DefaultDetailUseCase: DetailUseCase {
@@ -23,7 +23,7 @@ protocol DetailUseCase {
 //        self.favoriteRepository = favoriteRepository
 //    }
 //    
-//    func fetchDetailItem(source: CompactMedia) -> Single<Result<DetailMedia, Error>> {
+//    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>> {
 //        
 //        return
 //    }

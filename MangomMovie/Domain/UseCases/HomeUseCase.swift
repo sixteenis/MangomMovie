@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol HomeUseCase {
-    func addFavoriteItem(_ item: CompactMedia)
+    func addFavoriteItem(_ item: CompactMedia) -> Bool
     func fetchTrendMovieList() -> Single<Result<[CompactMedia], Error>>
     func fetchTrendTVList() -> Single<Result<[CompactMedia], Error>>
 }
@@ -23,7 +23,7 @@ protocol HomeUseCase {
 //        self.favoriteRepository = favoriteRepository
 //    }
 //    
-//    func addFavoriteItem(_ item: CompactMedia) {
+//    func addFavoriteItem(_ item: CompactMedia) -> Bool {
 //        
 //    }
 //    

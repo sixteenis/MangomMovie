@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol DetailRepository {
-    func fetchDetailItem(source: CompactMedia) -> Single<Result<DetailMedia, Error>>
+    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>>
 }
