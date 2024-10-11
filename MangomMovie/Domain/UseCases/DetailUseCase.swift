@@ -10,7 +10,9 @@ import RxSwift
 
 protocol DetailUseCase {
     func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>>
+    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>>
     func fetchSimilarList(type: MediaType, id: Int) -> Single<Result<[CompactMedia], Error>>
+    func addFavoriteItem(_ item: CompactMedia) -> Bool
     func addFavoriteItem(_ item: CompactMedia) -> Bool
 }
 
@@ -23,11 +25,7 @@ protocol DetailUseCase {
 //        self.favoriteRepository = favoriteRepository
 //    }
 //    
-<<<<<<< HEAD
 //    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>> {
-=======
-//    func fetchDetailItem(source: CompactMedia) -> Single<Result<DetailMedia, Error>> {
->>>>>>> dac9e4c (UseCase Protocol 정의)
 //        
 //        return
 //    }

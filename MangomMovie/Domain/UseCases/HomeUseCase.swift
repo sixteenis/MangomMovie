@@ -24,10 +24,14 @@ protocol HomeUseCase {
 //    }
 //    
 <<<<<<< HEAD
+<<<<<<< HEAD
 //    func addFavoriteItem(_ item: CompactMedia) -> Bool {
 =======
 //    func addFavoriteItem(_ item: CompactMedia) {
 >>>>>>> dac9e4c (UseCase Protocol 정의)
+=======
+//    func addFavoriteItem(_ item: CompactMedia) -> Bool {
+>>>>>>> 723ea08 (Add Favorite 시 Bool값 반환하도록 수정 / fetchDetailItem 매개변수 수정)
 //        
 //    }
 //    
