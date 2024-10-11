@@ -13,5 +13,4 @@ struct CompactMedia {
     let imagePath: String
     let genre: [String]
     let title: String
-    let isFavorite: Bool
 }

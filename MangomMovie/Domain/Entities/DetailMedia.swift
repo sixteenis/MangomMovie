@@ -17,5 +17,4 @@ struct DetailMedia {
     let synopsis: String
     let castList: [String]
     let creatorList: [String]
-    let isFavorite: Bool
 }
