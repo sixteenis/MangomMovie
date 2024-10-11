@@ -23,7 +23,11 @@ protocol DetailUseCase {
 //        self.favoriteRepository = favoriteRepository
 //    }
 //    
+<<<<<<< HEAD
 //    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>> {
+=======
+//    func fetchDetailItem(source: CompactMedia) -> Single<Result<DetailMedia, Error>> {
+>>>>>>> dac9e4c (UseCase Protocol 정의)
 //        
 //        return
 //    }

@@ -23,7 +23,11 @@ protocol HomeUseCase {
 //        self.favoriteRepository = favoriteRepository
 //    }
 //    
+<<<<<<< HEAD
 //    func addFavoriteItem(_ item: CompactMedia) -> Bool {
+=======
+//    func addFavoriteItem(_ item: CompactMedia) {
+>>>>>>> dac9e4c (UseCase Protocol 정의)
 //        
 //    }
 //    
