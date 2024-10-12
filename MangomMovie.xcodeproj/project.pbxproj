@@ -43,7 +43,6 @@
 		CEBC66602CB926F700DBD2DB /* DetailMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC665F2CB926F700DBD2DB /* DetailMedia.swift */; };
 		CEBC66642CB93C6D00DBD2DB /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC66632CB93C6D00DBD2DB /* MediaType.swift */; };
 		CEED57DF2CB7BF34007D7487 /* MediaContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57DE2CB7BF34007D7487 /* MediaContent.swift */; };
-<<<<<<< HEAD
 		CEED57E32CB7F221007D7487 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57E22CB7F221007D7487 /* HomeUseCase.swift */; };
 		CEED57E52CB7F2B0007D7487 /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57E42CB7F2B0007D7487 /* SearchUseCase.swift */; };
 		CEED57E72CB7F2CA007D7487 /* FavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57E62CB7F2CA007D7487 /* FavoriteUseCase.swift */; };
@@ -53,8 +52,6 @@
 		CEED57EF2CB805BB007D7487 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57EE2CB805BB007D7487 /* SearchRepository.swift */; };
 		CEED57F12CB805C3007D7487 /* DetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57F02CB805C3007D7487 /* DetailRepository.swift */; };
 		CEED57F32CB80C87007D7487 /* SimilarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57F22CB80C87007D7487 /* SimilarRepository.swift */; };
-=======
->>>>>>> adf7f0a (Entities 구조 변경)
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
