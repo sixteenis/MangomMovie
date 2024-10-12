@@ -20,6 +20,8 @@ extension UIImage {
     static let asSmailing = UIImage(systemName: "face.smiling")
     static let asPlus = UIImage(systemName: "plus")
     static let asTrsh = UIImage(systemName: "trash.fill")
+    static let xMark = UIImage(systemName: "xmark")
     
     static let testImage = UIImage(named: "test")
+    
 }

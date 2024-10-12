@@ -38,7 +38,21 @@ final class TrendingVC: BaseViewController {
         super.viewDidLoad()
         setNav()
     }
+
     override func bindData() {
+        
+        
+        playButton.rx.tap
+            .bind(with: self) { owner, _ in
+                let vc = DetailVC()
+                owner.present(vc, animated: true)
+            }.disposed(by: disposeBag)
+        listButton.rx.tap
+            .bind(with: self) { owner, _ in
+                print("1234")
+            }.disposed(by: disposeBag)
+        
+        
         //테스트용 임시 무비
         testArr
             .bind(to: nowMovieCollection.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
@@ -118,6 +132,7 @@ private extension TrendingVC {
         }
     }
     func setUpBigPostView() {
+        bigPostView.isUserInteractionEnabled = true
         bigPostView.layer.cornerRadius = 15
         bigPostView.clipsToBounds = true
         
