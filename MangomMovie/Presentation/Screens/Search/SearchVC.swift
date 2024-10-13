@@ -13,6 +13,7 @@ import SnapKit
 
 final class SearchVC: BaseViewController {
     private let disposeBag = DisposeBag()
+    //private let vm: SearchVM
     
     private let searchView = UITextField()
     
@@ -22,18 +23,14 @@ final class SearchVC: BaseViewController {
     
     private let testArr = Observable.just([1,2,3,4,5,6,7,8,9,10])
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func bindData() {
-        searchView.rx.text
-            .bind(with: self) { owner, text in
-                if text!.isEmpty {
-                    owner.setUpCollectionView(type: .recommend)
-                } else {
-                    owner.setUpCollectionView(type: .search)
-                }
-            }.disposed(by: disposeBag)
+        let viewDidLoad = Observable.just(())
+        let searchText = searchView.rx.text.orEmpty
+        
         //테스트용 임시 무비
         testArr
             .bind(to: recommendCollection.rx.items(cellIdentifier: recommendCollectionCell.id, cellType: recommendCollectionCell.self)) { (row, element, cell) in
