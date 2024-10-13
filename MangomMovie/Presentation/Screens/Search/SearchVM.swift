@@ -4,11 +4,9 @@
 //
 //  Created by 박성민 on 10/13/24.
 //
-
 import Foundation
 import RxSwift
 import RxCocoa
-
 final class SearchVM: BaseViewModel {
     private let disposeBag = DisposeBag()
     private let useCase: SearchUseCase
