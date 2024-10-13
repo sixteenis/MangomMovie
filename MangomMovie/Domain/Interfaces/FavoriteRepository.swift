@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol FavoriteRepository {
-    func fetchFavoriteList() -> Single<Result<[CompactMedia], Error>>
+    func fetchFavoriteList() -> [CompactMedia]
     func addFavoriteItem(_ item: CompactMedia) -> Bool
     func deleteFavoriteItem(id: Int)
 }
