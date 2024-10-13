@@ -188,7 +188,6 @@
 			children = (
 				0656702F2CB7E62900CF58CB /* CollectionType.swift */,
 				06B528262CB5399E001B36DF /* SearchVC.swift */,
-				065670AB2CBBBA1600CF58CB /* SearchVM.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
