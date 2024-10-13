@@ -13,19 +13,18 @@ protocol FavoriteUseCase {
     func deleteFavoriteItem(id: Int)
 }
 
-//final class DefaultFavoriteUseCase: FavoriteUseCase {
-//    private let favoriteRepository: FavoriteRepository
-//    
-//    init(favoriteRepository: FavoriteRepository) {
-//        self.favoriteRepository = favoriteRepository
-//    }
-//    
-//    func fetchFavoriteList() -> Single<Result<[CompactMedia], Error>> {
-//        
-//        return
-//    }
-//    
-//    func deleteFavoriteItem(id: Int) {
-//        
-//    }
-//}
+final class DefaultFavoriteUseCase: FavoriteUseCase {
+    private let favoriteRepository: FavoriteRepository
+    
+    init(favoriteRepository: FavoriteRepository) {
+        self.favoriteRepository = favoriteRepository
+    }
+    
+    func fetchFavoriteList() -> Single<Result<[CompactMedia], Error>> {
+        return favoriteRepository.fetchFavoriteList()
+    }
+    
+    func deleteFavoriteItem(id: Int) {
+        favoriteRepository.deleteFavoriteItem(id: id)
+    }
+}

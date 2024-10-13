@@ -14,26 +14,26 @@ protocol DetailUseCase {
     func addFavoriteItem(_ item: CompactMedia) -> Bool
 }
 
-//final class DefaultDetailUseCase: DetailUseCase {
-//    private let detailRepository: DetailRepository
-//    private let favoriteRepository: FavoriteRepository
-//    
-//    init(detailRepository: DetailRepository, favoriteRepository: FavoriteRepository) {
-//        self.detailRepository = detailRepository
-//        self.favoriteRepository = favoriteRepository
-//    }
-//    
-//    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>> {
-//        
-//        return
-//    }
-//    
-//    func fetchSimilarList(type: MediaType, id: Int) -> Single<Result<[CompactMedia], Error>> {
-//        
-//        return
-//    }
-//    
-//    func addFavoriteItem(_ item: CompactMedia) {
-//        
-//    }
-//}
+final class DefaultDetailUseCase: DetailUseCase {
+    private let detailRepository: DetailRepository
+    private let similarRepository: SimilarRepository
+    private let favoriteRepository: FavoriteRepository
+    
+    init(detailRepository: DetailRepository, similarRepository: SimilarRepository, favoriteRepository: FavoriteRepository) {
+        self.detailRepository = detailRepository
+        self.similarRepository = similarRepository
+        self.favoriteRepository = favoriteRepository
+    }
+    
+    func fetchDetailItem(type: MediaType, id: Int) -> Single<Result<DetailMedia, Error>> {
+        return detailRepository.fetchDetailItem(type: type, id: id)
+    }
+    
+    func fetchSimilarList(type: MediaType, id: Int) -> Single<Result<[CompactMedia], Error>> {
+        return similarRepository.fetchSimilarList(type: type, id: id)
+    }
+    
+    func addFavoriteItem(_ item: CompactMedia) -> Bool {
+        return favoriteRepository.addFavoriteItem(item)
+    }
+}

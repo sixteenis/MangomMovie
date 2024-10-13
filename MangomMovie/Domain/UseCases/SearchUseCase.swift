@@ -13,23 +13,20 @@ protocol SearchUseCase {
     func fetchTrendMovieList() -> Single<Result<[CompactMedia], Error>>
 }
 
-//final class DefaultSearchUseCase: SearchUseCase {
-//    private let searchRepository: SearchRepository
-//    private let trendRepository: TrendRepository
-//    
-//    init(searchRepository: SearchRepository, trendRepository: TrendRepository) {
-//        self.searchRepository = searchRepository
-//        self.trendRepository = trendRepository
-//    }
-//    
-//    func fetchSearchMovieList(keyword: String, isPagination: Bool) -> Single<Result<[CompactMedia], Error>> {
-//        let searchResult = searchRepository.fetchSearchMovieList(keyword: keyword, isPagination: isPagination)
-//        
-//        return searchResult
-//    }
-//    
-//    func fetchTrendMovieList() -> Single<Result<[CompactMedia], Error>> {
-//        
-//        return
-//    }
-//}
+final class DefaultSearchUseCase: SearchUseCase {
+    private let searchRepository: SearchRepository
+    private let trendRepository: TrendRepository
+    
+    init(searchRepository: SearchRepository, trendRepository: TrendRepository) {
+        self.searchRepository = searchRepository
+        self.trendRepository = trendRepository
+    }
+    
+    func fetchSearchMovieList(keyword: String, isPagination: Bool) -> Single<Result<[CompactMedia], Error>> {
+        return searchRepository.fetchSearchMovieList(keyword: keyword, isPagination: isPagination)
+    }
+    
+    func fetchTrendMovieList() -> Single<Result<[CompactMedia], Error>> {
+        return trendRepository.fetchTrendMovieList()
+    }
+}

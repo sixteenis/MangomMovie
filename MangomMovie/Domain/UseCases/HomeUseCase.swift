@@ -14,26 +14,24 @@ protocol HomeUseCase {
     func fetchTrendTVList() -> Single<Result<[CompactMedia], Error>>
 }
 
-//final class DefaultHomeUseCase: HomeUseCase {
-//    private let trendRepository: TrendRepository
-//    private let favoriteRepository: FavoriteRepository
-//    
-//    init(trendRepository: TrendRepository, favoriteRepository: FavoriteRepository) {
-//        self.trendRepository = trendRepository
-//        self.favoriteRepository = favoriteRepository
-//    }
-//    
-//    func addFavoriteItem(_ item: CompactMedia) -> Bool {
-//        
-//    }
-//    
-//    func fetchTrendMovieList() -> Single<Result<[CompactMedia], Error>> {
-//        
-//        return
-//    }
-//    
-//    func fetchTrendTVList() -> Single<Result<[CompactMedia], Error>> {
-//        
-//        return
-//    }
-//}
+final class DefaultHomeUseCase: HomeUseCase {
+    private let trendRepository: TrendRepository
+    private let favoriteRepository: FavoriteRepository
+    
+    init(trendRepository: TrendRepository, favoriteRepository: FavoriteRepository) {
+        self.trendRepository = trendRepository
+        self.favoriteRepository = favoriteRepository
+    }
+
+    func addFavoriteItem(_ item: CompactMedia) -> Bool {
+        return favoriteRepository.addFavoriteItem(item)
+    }
+    
+    func fetchTrendMovieList() -> Single<Result<[CompactMedia], Error>> {
+        return trendRepository.fetchTrendMovieList()
+    }
+    
+    func fetchTrendTVList() -> Single<Result<[CompactMedia], Error>> {
+        return trendRepository.fetchTrendTVList()
+    }
+}
