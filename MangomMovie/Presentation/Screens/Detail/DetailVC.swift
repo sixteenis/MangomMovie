@@ -65,7 +65,6 @@ final class DetailVC: BaseViewController {
         
         xButton.rx.tap
             .bind(with: self) { owner, _ in
-                print("123")
                 owner.dismiss(animated: true)
             }.disposed(by: disposeBag)
         

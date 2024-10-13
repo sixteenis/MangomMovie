@@ -10,10 +10,15 @@ import SnapKit
 import RxSwift
 
 final class recommendCollectionCell: BaseCollectioViewCell {
+    private var disposeBag = DisposeBag()
     private let poster = UIImageView()
     private let title = UILabel()
     private let playButton = UIImageView()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     override func setUpHierarchy() {
         self.addSubview(poster)
         self.addSubview(title)
