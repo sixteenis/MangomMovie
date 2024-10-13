@@ -59,6 +59,7 @@ final class LikeVC: BaseViewController {
         likeTableView.rowHeight = UIScreen.main.bounds.height / 6
         likeTableView.showsVerticalScrollIndicator = false
         likeTableView.delegate = self
+        likeTableView.separatorStyle = .none
         
     }
 }

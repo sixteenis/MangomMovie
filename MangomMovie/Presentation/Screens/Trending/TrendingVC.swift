@@ -13,6 +13,8 @@ import SnapKit
 
 final class TrendingVC: BaseViewController {
     private let disposeBag = DisposeBag()
+    private let vm = TrendginVM()
+    
     private let navTVButton = UIButton()
     private let navSearchButton = UIButton()
     
@@ -40,29 +42,49 @@ final class TrendingVC: BaseViewController {
     }
 
     override func bindData() {
+        let viewDidLoad = Observable.just(())
+        let saveButtonTap = listButton.rx.tap
+        let movieTap = self.nowMovieCollection.rx.modelSelected(CompactMedia.self)
+            .observe(on: MainScheduler.instance)
+        let tvTap = self.nowTVCollection.rx.modelSelected(CompactMedia.self)
+            .observe(on: MainScheduler.instance)
         
+        let postTap = Observable.merge(movieTap, tvTap)
+
+        
+        let input = TrendginVM.Input(viewDidLoad: viewDidLoad, saveButtonTap: saveButtonTap, posterTap: postTap)
+        let output = vm.transform(input: input)
         
         playButton.rx.tap
             .bind(with: self) { owner, _ in
-                let vc = DetailVC()
-                owner.present(vc, animated: true)
+                print("플레이 버튼 누름")
             }.disposed(by: disposeBag)
-        listButton.rx.tap
-            .bind(with: self) { owner, _ in
-                print("1234")
+        output.showAlert
+            .bind(with: self) { owner, type in
+                self.showAlert(type: type)
             }.disposed(by: disposeBag)
-        
-        
-        //테스트용 임시 무비
-        testArr
+        output.presentDetailView
+            .bind(with: self) { owner, item in
+                self.presentDetatilView(model: item)
+            }.disposed(by: disposeBag)
+        //큰 포스터 부분
+        output.bigPost
+            .bind(with: self) { owner, item in
+                owner.setDataBigPost(item: item)
+            }.disposed(by: disposeBag)
+        // 무비 부분
+        output.movieList
             .bind(to: nowMovieCollection.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
-                
+                cell.setUpData(data: element)
             }.disposed(by: disposeBag)
-        //테스트용 임시 티비
-        testArr
+        //티비 부분
+        output.tvList
             .bind(to: nowTVCollection.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
-                
+                cell.setUpData(data: element)
             }.disposed(by: disposeBag)
+        
+        
+            
     }
     private func setNav() {
         navTVButton.setTitle("", for: .normal)
@@ -104,6 +126,11 @@ final class TrendingVC: BaseViewController {
 }
 // MARK: - 큰 포스터 부분
 private extension TrendingVC {
+    func setDataBigPost(item: CompactMedia) {
+        self.fetchImage(imageView: self.bigPostView, imageURL: item.imagePath)
+        self.genreLabel.text = item.genre.reduce("") { $0 + " " + $1}
+        
+    }
     func setUpBigPostViewHierarchy() {
         contentView.addSubview(bigPostView)
         bigPostView.addSubview(genreLabel)
@@ -209,6 +236,9 @@ private extension TrendingVC {
         }
     }
     func setUpCollectionView() {
+        self.nowTVCollection.showsHorizontalScrollIndicator = false
+        self.nowMovieCollection.showsHorizontalScrollIndicator = false
+        
         nowMovieHeader.text = "지금 뜨는 영화"
         nowMovieHeader.textColor = .asFont
         nowMovieCollection.backgroundColor = .asBackground

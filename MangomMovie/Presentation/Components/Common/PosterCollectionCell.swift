@@ -10,8 +10,13 @@ import SnapKit
 import RxSwift
 
 final class PosterCollectionCell: BaseCollectioViewCell {
+    private var disposeBag = DisposeBag()
     private let poster = UIImageView()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     override func setUpHierarchy() {
         self.addSubview(poster)
     }
@@ -23,8 +28,12 @@ final class PosterCollectionCell: BaseCollectioViewCell {
     }
     
     override func setUpView() {
-        poster.image = UIImage.test
         poster.layer.cornerRadius = 15
         poster.layer.masksToBounds = true
+    }
+    
+    func setUpData(data: CompactMedia) {
+        print(data.imagePath)
+        self.fetchImage(imageView: self.poster, imageURL: data.imagePath)
     }
 }
