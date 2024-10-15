@@ -12,11 +12,12 @@ import RxCocoa
 final class TrendginVM: BaseViewModel {
     private let disposeBag = DisposeBag()
     private let testURL = "https://image.tmdb.org/t/p/w780/lZGOK0I2DJSRlEPNOAFTSNxSjDD.jpg"
+    private let useCase = DefaultHomeUseCase()
+    
     struct Input {
         let viewDidLoad: Observable<Void> //뷰 뜰때
         let saveButtonTap: ControlEvent<Void> // 찜한 리스트 클릭 시
         let posterTap: Observable<ControlEvent<CompactMedia>.Element> // 포스터 클릭 시
-        
     }
     struct Output {
         let showAlert: Observable<AlertType>
@@ -29,23 +30,48 @@ final class TrendginVM: BaseViewModel {
     }
     
     func transform(input: Input) -> Output {
-        let bigPost = ReplayRelay<CompactMedia>.create(bufferSize: 1)
+        let bigPost = BehaviorRelay(value: CompactMedia())
         let movieList = BehaviorRelay(value: [CompactMedia]())
         let tvList = BehaviorRelay(value: [CompactMedia]())
         
         let alert = ReplayRelay<AlertType>.create(bufferSize: 1)
         let presentDetailView = ReplayRelay<CompactMedia>.create(bufferSize: 1)
-        
         input.viewDidLoad
-            .bind(with: self) { owner, _ in
-                bigPost.accept(owner.getRandomItem())
-                movieList.accept(owner.getMovieList())
-                tvList.accept(owner.getTVList())
+            .flatMap { _ in
+                self.useCase.fetchTrendMovieList()
+            }
+            .bind(with: self) { owner, response in
+                switch response {
+                case .success(let data):
+                    movieList.accept(data)
+                    if !data.isEmpty {
+                        bigPost.accept(data.randomElement()!)
+                    }
+                case .failure(let err):
+                    print(err)
+                }
+            }.disposed(by: disposeBag)
+        input.viewDidLoad
+            .flatMap { _ in
+                self.useCase.fetchTrendTVList()
+            }
+            .bind(with: self) { owner, response in
+                switch response {
+                case .success(let data):
+                    tvList.accept(data)
+                case .failure(let err):
+                    print(err)
+                }
             }.disposed(by: disposeBag)
         
         input.saveButtonTap
             .bind(with: self) { owner, _ in
-                alert.accept(.save)
+                let result = owner.useCase.addFavoriteItem(bigPost.value)
+                if result {
+                    alert.accept(.save)
+                } else {
+                    alert.accept(.alreadySave)
+                }
             }.disposed(by: disposeBag)
         
         input.posterTap
@@ -58,20 +84,3 @@ final class TrendginVM: BaseViewModel {
     
 }
 
-private extension TrendginVM {
-    func getMovieList() -> [CompactMedia] {
-
-        return [CompactMedia(type: .movie, id: 0, imagePath: testURL, genre: ["어쩌구", "저쩌구"], title: "인사이드")]
-    }
-    func getTVList() -> [CompactMedia] {
-        return [CompactMedia(type: .tv, id: 0, imagePath: testURL, genre: ["어쩌구", "저쩌구"], title: "인사이드")]
-    }
-    func getRandomItem() -> CompactMedia {
-        let rType = Bool.random()
-        if rType {
-            return CompactMedia(type: .movie, id: 0, imagePath: testURL, genre: ["어쩌구", "저쩌구"], title: "인사이드")
-        } else {
-            return CompactMedia(type: .tv, id: 0, imagePath: testURL, genre: ["어쩌구", "저쩌구"], title: "인사이드")
-        }
-    }
-}

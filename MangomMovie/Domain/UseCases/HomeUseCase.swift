@@ -18,7 +18,7 @@ final class DefaultHomeUseCase: HomeUseCase {
     private let trendRepository: TrendRepository
     private let favoriteRepository: FavoriteRepository
     
-    init(trendRepository: TrendRepository, favoriteRepository: FavoriteRepository) {
+    init(trendRepository: TrendRepository = DefaultTrendRepository(), favoriteRepository: FavoriteRepository = DefaultFavoriteRepository()) {
         self.trendRepository = trendRepository
         self.favoriteRepository = favoriteRepository
     }

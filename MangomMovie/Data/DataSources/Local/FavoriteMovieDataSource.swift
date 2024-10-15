@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import Kingfisher
 
 protocol FavoriteMovieDataSource {
     func createFavoriteMovie(_ movie: CompactMedia) -> Bool
@@ -29,8 +30,20 @@ final class DefaultFavoriteMovieDataSource: FavoriteMovieDataSource {
         }
         
         add(movie)
-        // Image Data를 받아와야함....
-        //saveImageToDocument(imageData: , movieID: )
+        guard let url = URL(string: APIKey.baseURL + movie.imagePath) else { return false }
+        self.downloadImage(from: url) { [weak self] data in
+            guard let self, let imageData = data else {
+                print("이미지 저장 실패 ㅠ")
+                return
+            }
+            self.saveImageToDocument(imageData: imageData, movieID: movie.id)
+        }
+//            guard let imageData = try? Data(contentsOf: url) else { return }
+//            
+//        
+//        self.saveImageToDocument(imageData: imageData, movieID: movie.id)
+        
+        
         return true
     }
     
@@ -44,10 +57,29 @@ final class DefaultFavoriteMovieDataSource: FavoriteMovieDataSource {
         delete(movieID)
         removeImageFromDocument(movieID: movieID)
     }
-    
 }
 
 extension DefaultFavoriteMovieDataSource {
+    // 비동기적으로 이미지를 다운로드하는 함수
+    private func downloadImage(from url: URL, completion: @escaping (Data?) -> Void) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error downloading image: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data,
+                  let response = response as? HTTPURLResponse,
+                  response.statusCode == 200 else {
+                print("Invalid response or no data")
+                completion(nil)
+                return
+            }
+            
+            completion(data)
+        }.resume()
+    }
     private func add(_ movie: CompactMedia) {
         do {
             let new = FavoriteMovieDTO(id: movie.id, title: movie.title)
