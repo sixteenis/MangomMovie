@@ -33,7 +33,6 @@ final class PosterCollectionCell: BaseCollectioViewCell {
     }
     
     func setUpData(data: CompactMedia) {
-        print(data.imagePath)
         self.fetchImage(imageView: self.poster, imageURL: data.imagePath)
     }
 }

@@ -57,7 +57,7 @@ final class recommendCollectionCell: BaseCollectioViewCell {
         playButton.contentMode = .scaleToFill
     }
 }
-final class recommendTableViewCell: BaseTableViewCell {
+final class recommendTableViewCell: BaseTableViewCell, FetchImageProtocol {
     private let poster = UIImageView()
     private let title = UILabel()
     private let playButton = UIImageView()
@@ -101,4 +101,9 @@ final class recommendTableViewCell: BaseTableViewCell {
         playButton.contentMode = .scaleToFill
         self.backgroundColor = .asBackground
     }
+    func setUpData(_ data: CompactMedia) {
+        self.fetchImage(imageView: self.poster, realmURL: String(data.id))
+        self.title.text = data.title
+    }
 }
+

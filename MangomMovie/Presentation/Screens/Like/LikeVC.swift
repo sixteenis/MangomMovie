@@ -17,15 +17,25 @@ final class LikeVC: BaseViewController {
     private let genreLabel = UILabel()
     private lazy var likeTableView = UITableView()
     
-    private let testArr = Observable.just([1,2,3,4,5,6,7,8,9,10])
-    
+    private let vm = LikeVM()
+    private let viewWill = PublishSubject<Void>()
+    private let removeIndex = PublishSubject<Int>()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewWill.onNext(())
+    }
     override func bindData() {
-        testArr
-            .bind(to: likeTableView.rx.items(cellIdentifier: recommendTableViewCell.id, cellType: recommendTableViewCell.self)) { (tableView, row, element) in
+        
+        let input = LikeVM.Input(viewDidLoad: viewWill, removeItem: removeIndex)
+        let output = vm.transform(input: input)
+
+        output.likeList
+            .bind(to: likeTableView.rx.items(cellIdentifier: recommendTableViewCell.id, cellType: recommendTableViewCell.self)) { (tableView, item, element) in
                 element.selectionStyle = .none
+                element.setUpData(item)
             }.disposed(by: disposeBag)
         
     }
@@ -67,7 +77,8 @@ final class LikeVC: BaseViewController {
 extension LikeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "삭제") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
-            print("삭제 클릭 됨")
+            self.removeIndex.onNext(indexPath.row)
+            print(indexPath.row)
             success(true)
         }
         delete.title = nil
