@@ -22,6 +22,31 @@ struct MovieDetailDTO: Decodable {
         case posterPath = "poster_path"
     }
 }
+extension MovieDetailDTO {
+//    func toDomain() -> DetailMedia {
+//        let result = DetailMedia(
+//            type: .movie,
+//            id: self.id,
+//            posterImagePath: self.posterPath ?? "",
+//            backdropImagePath: self.backdropPath ?? "",
+//            title: self.title,
+//            grade: self.rate.formatted(),
+//            synopsis: <#T##String#>,
+//            castList: <#T##[String]#>,
+//            creatorList: <#T##[String]#>)
+//    }
+}
+//struct DetailMedia {
+//    let type: MediaType
+//    let id: Int
+//    let posterImagePath: String
+//    let backdropImagePath: String
+//    let title: String
+//    let grade: String
+//    let synopsis: String
+//    let castList: [String]
+//    let creatorList: [String]
+//}
 
 struct TVDetailDTO: Decodable {
     let id: Int

@@ -21,7 +21,8 @@ protocol MediaDataSource {
 }
 
 final class DefaultMediaDataSource: MediaDataSource {
-    
+//    static let sharde = DefaultMediaDataSource()
+//    private init() {}
     private let provider = MoyaProvider<TMDBRequest>()
     private let disposeBag = DisposeBag()
     private var page = 1

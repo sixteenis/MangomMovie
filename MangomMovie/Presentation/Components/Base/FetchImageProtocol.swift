@@ -14,7 +14,7 @@ protocol FetchImageProtocol: AnyObject {
 
 extension FetchImageProtocol {
     @MainActor func fetchImage(imageView: UIImageView, imageURL: String) {
-        guard let url = URL(string: imageURL) else { return }
+        guard let url = URL(string: APIKey.baseURL + imageURL) else { return }
         imageView.kf.setImage(
         with: url,
         placeholder: nil,

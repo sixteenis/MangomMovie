@@ -48,7 +48,6 @@ final class TrendingVC: BaseViewController {
             .observe(on: MainScheduler.instance)
         let tvTap = self.nowTVCollection.rx.modelSelected(CompactMedia.self)
             .observe(on: MainScheduler.instance)
-        
         let postTap = Observable.merge(movieTap, tvTap)
 
         
@@ -128,8 +127,9 @@ final class TrendingVC: BaseViewController {
 private extension TrendingVC {
     func setDataBigPost(item: CompactMedia) {
         self.fetchImage(imageView: self.bigPostView, imageURL: item.imagePath)
-        self.genreLabel.text = item.genre.reduce("") { $0 + " " + $1}
-        
+        // MARK: - 장르값은 코드를 주는데 그걸 변환하는 작업 필요!
+        //self.genreLabel.text = item.genre.reduce("") { $0 + " " + $1}
+        self.genreLabel.text = "애니메이션 가족 코미디 드라마"
     }
     func setUpBigPostViewHierarchy() {
         contentView.addSubview(bigPostView)
@@ -187,7 +187,6 @@ private extension TrendingVC {
         
         // MARK: - 변경되는 데이터
         bigPostView.image = UIImage.testImage
-        genreLabel.text = "애니메이션 가족 코미디 드라마"
         DispatchQueue.main.async {
             self.addGradientToBigPostView()
         }
