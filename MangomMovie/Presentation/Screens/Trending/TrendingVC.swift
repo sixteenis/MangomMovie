@@ -13,7 +13,7 @@ import SnapKit
 
 final class TrendingVC: BaseViewController {
     private let disposeBag = DisposeBag()
-    private let vm = TrendginVM()
+    private let vm = TrendingVM()
     
     private let navTVButton = UIButton()
     private let navSearchButton = UIButton()
@@ -51,7 +51,7 @@ final class TrendingVC: BaseViewController {
         let postTap = Observable.merge(movieTap, tvTap)
         
         
-        let input = TrendginVM.Input(viewDidLoad: viewDidLoad, saveButtonTap: saveButtonTap, posterTap: postTap)
+        let input = TrendingVM.Input(viewDidLoad: viewDidLoad, saveButtonTap: saveButtonTap, posterTap: postTap)
         let output = vm.transform(input: input)
         playButton.rx.tap
             .bind(with: self) { owner, _ in
