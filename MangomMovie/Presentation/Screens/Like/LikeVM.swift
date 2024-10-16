@@ -28,8 +28,6 @@ final class LikeVM: BaseViewModel {
         input.removeItem
             .bind(with: self) { owner, index in
                 if likeList.value.count >= index {
-                    print(likeList.value[index].id)
-                    print("-123")
                     owner.useCase.deleteFavoriteItem(id: likeList.value[index].id)
                     likeList.accept(owner.useCase.fetchFavoriteList())
                 }

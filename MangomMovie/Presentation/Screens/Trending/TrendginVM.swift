@@ -11,7 +11,6 @@ import RxCocoa
 
 final class TrendginVM: BaseViewModel {
     private let disposeBag = DisposeBag()
-    private let testURL = "https://image.tmdb.org/t/p/w780/lZGOK0I2DJSRlEPNOAFTSNxSjDD.jpg"
     private let useCase = DefaultHomeUseCase()
     
     struct Input {

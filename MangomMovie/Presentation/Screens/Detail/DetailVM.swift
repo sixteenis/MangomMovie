@@ -29,6 +29,7 @@ final class DetailVM: BaseViewModel {
         let detailMedia = ReplayRelay<DetailMedia>.create(bufferSize: 1)
         let similarList = BehaviorRelay(value: [CompactMedia]())
         let alert = ReplayRelay<AlertType>.create(bufferSize: 1)
+        
         input.viewDidLoad
             .flatMap { _ in
                 self.useCase.fetchDetailItem(type: self.compactMedia.type, id: self.compactMedia.id)
@@ -50,8 +51,6 @@ final class DetailVM: BaseViewModel {
                 switch response {
                 case .success(let data):
                     similarList.accept(data)
-                    print("----123123123")
-                    print(data.first?.imagePath)
                 case .failure(let err):
                     print(err)
                 }

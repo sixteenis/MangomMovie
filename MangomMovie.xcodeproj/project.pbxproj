@@ -192,9 +192,9 @@
 		06B527F12CB51E2C001B36DF /* MangomMovie */ = {
 			isa = PBXGroup;
 			children = (
-				CCD50C582CBBA0F100E9AF74 /* Data */,
 				06B527F22CB51E2C001B36DF /* AppDelegate.swift */,
 				06B527F42CB51E2C001B36DF /* SceneDelegate.swift */,
+				CCD50C582CBBA0F100E9AF74 /* Data */,
 				CEED57C72CB78801007D7487 /* Domain */,
 				06B528082CB51EF1001B36DF /* Presentation */,
 				06B527FB2CB51E2E001B36DF /* Assets.xcassets */,
