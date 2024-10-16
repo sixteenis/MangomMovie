@@ -9,11 +9,7 @@ import RxSwift
 import RxCocoa
 final class SearchVM: BaseViewModel {
     private let disposeBag = DisposeBag()
-    private let useCase: SearchUseCase
-    
-    init(useCase: SearchUseCase) {
-        self.useCase = useCase
-    }
+    private let useCase = DefaultSearchUseCase()
     
     struct Input {
         let viewDidLoad: Observable<Void>
@@ -21,9 +17,9 @@ final class SearchVM: BaseViewModel {
         
     }
     struct Output {
-        let trendMovieList: BehaviorRelay<[CompactMedia]>
-        let searchMovieList: BehaviorRelay<[CompactMedia]>
-        let nowState: BehaviorRelay<CollectionType>
+        let trendMovieList: Observable<[CompactMedia]>
+        let searchMovieList: Observable<[CompactMedia]>
+        let nowState: Observable<CollectionType>
         
     }
     func transform(input: Input) -> Output {
@@ -36,7 +32,6 @@ final class SearchVM: BaseViewModel {
             .bind(with: self) { owner, item in
                 switch item {
                 case .success(let data):
-                    nowState.accept(.recommend)
                     trendMovieList.accept(data)
                 case .failure(let err):
                     print(err)
@@ -65,7 +60,7 @@ final class SearchVM: BaseViewModel {
             }.disposed(by: disposeBag)
         
             
-        return Output(trendMovieList: trendMovieList, searchMovieList: searchMovieList, nowState: nowState)
+        return Output(trendMovieList: trendMovieList.asObservable(), searchMovieList: searchMovieList.asObservable(), nowState: nowState.asObservable())
     }
 }
 private extension SearchVM {

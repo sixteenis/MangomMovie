@@ -17,7 +17,7 @@ final class DefaultSearchUseCase: SearchUseCase {
     private let searchRepository: SearchRepository
     private let trendRepository: TrendRepository
     
-    init(searchRepository: SearchRepository, trendRepository: TrendRepository) {
+    init(searchRepository: SearchRepository = DefaultSearchRepository(), trendRepository: TrendRepository = DefaultTrendRepository()) {
         self.searchRepository = searchRepository
         self.trendRepository = trendRepository
     }

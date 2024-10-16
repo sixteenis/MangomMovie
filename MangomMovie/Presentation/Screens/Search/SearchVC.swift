@@ -13,7 +13,7 @@ import SnapKit
 
 final class SearchVC: BaseViewController {
     private let disposeBag = DisposeBag()
-    //private let vm: SearchVM
+    private let vm: SearchVM = SearchVM()
     
     private let searchView = UITextField()
     
@@ -28,19 +28,32 @@ final class SearchVC: BaseViewController {
         super.viewDidLoad()
     }
     override func bindData() {
-        let viewDidLoad = Observable.just(())
-        let searchText = searchView.rx.text.orEmpty
-        
-        //테스트용 임시 무비
-        testArr
+        let input = SearchVM.Input(viewDidLoad: Observable.just(()), searchText: searchView.rx.text.orEmpty)
+        let output = vm.transform(input: input)
+        output.nowState
+            .bind(with: self) { owner, state in
+                owner.setUpCollectionView(type: state)
+            }.disposed(by: disposeBag)
+        output.trendMovieList
             .bind(to: recommendCollection.rx.items(cellIdentifier: recommendCollectionCell.id, cellType: recommendCollectionCell.self)) { (row, element, cell) in
-                
+                cell.setUpData(element)
             }.disposed(by: disposeBag)
         
-        testArr
+        output.searchMovieList
             .bind(to: searchCollection.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
-                
+                cell.setUpData(data: element)
             }.disposed(by: disposeBag)
+        
+        recommendCollection.rx.modelSelected(CompactMedia.self)
+            .bind(with: self) { owner, data in
+                self.presentDetatilView(model: data)
+            }.disposed(by: disposeBag)
+        
+        searchCollection.rx.modelSelected(CompactMedia.self)
+            .bind(with: self) { owner, data in
+                self.presentDetatilView(model: data)
+            }.disposed(by: disposeBag)
+        
     }
     // MARK: - 연결 부분
     override func setUpHierarchy() {

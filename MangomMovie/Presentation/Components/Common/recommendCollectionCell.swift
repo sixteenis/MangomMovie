@@ -42,7 +42,6 @@ final class recommendCollectionCell: BaseCollectioViewCell {
     }
     
     override func setUpView() {
-        poster.image = UIImage.test
         poster.contentMode = .scaleAspectFill
         poster.layer.masksToBounds = true
         
@@ -50,11 +49,14 @@ final class recommendCollectionCell: BaseCollectioViewCell {
         title.font = .font14
         title.textAlignment = .left
         title.numberOfLines = 1
-        title.text = "인사이드 아웃 2"
         
         playButton.image = UIImage.asPlayCircle
         playButton.tintColor = .asWhite
         playButton.contentMode = .scaleToFill
+    }
+    func setUpData(_ data: CompactMedia) {
+        self.fetchImage(imageView: self.poster, imageURL: data.imagePath)
+        self.title.text = data.title
     }
 }
 final class recommendTableViewCell: BaseTableViewCell, FetchImageProtocol {

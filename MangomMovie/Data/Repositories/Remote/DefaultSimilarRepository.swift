@@ -28,7 +28,7 @@ private extension DefaultSimilarRepository {
                 .catch { .just(.failure($0))}
         } else {
             return dataSource.fetchSimilarTVs(id)
-                .map { $0.map{$0.result.map {$0.toDomain()}}}
+                .map { $0.map{$0.results.map {$0.toDomain()}}}
                 .catch { .just(.failure($0))}
         }
     }

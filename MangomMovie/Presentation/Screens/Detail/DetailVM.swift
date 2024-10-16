@@ -50,6 +50,8 @@ final class DetailVM: BaseViewModel {
                 switch response {
                 case .success(let data):
                     similarList.accept(data)
+                    print("----123123123")
+                    print(data.first?.imagePath)
                 case .failure(let err):
                     print(err)
                 }

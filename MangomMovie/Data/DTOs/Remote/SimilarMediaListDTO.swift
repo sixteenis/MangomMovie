@@ -12,6 +12,6 @@ struct SimilarMovieListDTO: Decodable {
 }
 
 struct SimilarTVListDTO: Decodable {
-    let result: [CompactTVDTO]
+    let results: [CompactTVDTO]
 }
 
