@@ -26,6 +26,7 @@ final class SearchVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpaccessibilityIdentifier()
     }
     override func bindData() {
         let input = SearchVM.Input(viewDidLoad: Observable.just(()), searchText: searchView.rx.text.orEmpty, pagination:    searchCollection.rx.prefetchItems)
@@ -146,4 +147,14 @@ private extension SearchVC {
         
     }
 
+}
+
+private extension SearchVC {
+    func setUpaccessibilityIdentifier() {
+        view.accessibilityIdentifier = "SearchVC"
+            searchView.accessibilityIdentifier = "searchView"
+            genreLabel.accessibilityIdentifier = "genreLabel"
+            recommendCollection.accessibilityIdentifier = "recommendCollection"
+            searchCollection.accessibilityIdentifier = "searchCollection"
+    }
 }

@@ -22,6 +22,12 @@
 		065670D62CBDF95500CF58CB /* DefaultDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670D52CBDF95500CF58CB /* DefaultDetailRepository.swift */; };
 		065670D82CBDF95F00CF58CB /* DefaultSimilarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670D72CBDF95F00CF58CB /* DefaultSimilarRepository.swift */; };
 		065670DA2CBF7D6800CF58CB /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670D92CBF7D6800CF58CB /* DetailVM.swift */; };
+		065670FA2CBFE33400CF58CB /* TrendingVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670F92CBFE33400CF58CB /* TrendingVCTest.swift */; };
+		065670FC2CBFE33400CF58CB /* MangomMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670FB2CBFE33400CF58CB /* MangomMovieUITestsLaunchTests.swift */; };
+		065671092CBFE33A00CF58CB /* MangomMovieUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065671082CBFE33A00CF58CB /* MangomMovieUnitTests.swift */; };
+		065671102CBFE99900CF58CB /* SearchVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0656710F2CBFE99900CF58CB /* SearchVCTest.swift */; };
+		065671122CBFEFF400CF58CB /* LikeVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065671112CBFEFF400CF58CB /* LikeVCTest.swift */; };
+		065671132CBFF1EF00CF58CB /* LikeVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065671112CBFEFF400CF58CB /* LikeVCTest.swift */; };
 		06B527F32CB51E2C001B36DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F22CB51E2C001B36DF /* AppDelegate.swift */; };
 		06B527F52CB51E2C001B36DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F42CB51E2C001B36DF /* SceneDelegate.swift */; };
 		06B527FC2CB51E2E001B36DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B527FB2CB51E2E001B36DF /* Assets.xcassets */; };
@@ -76,6 +82,23 @@
 		CEED57F32CB80C87007D7487 /* SimilarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED57F22CB80C87007D7487 /* SimilarRepository.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		065670FD2CBFE33400CF58CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06B527E72CB51E2C001B36DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06B527EE2CB51E2C001B36DF;
+			remoteInfo = MangomMovie;
+		};
+		0656710A2CBFE33A00CF58CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06B527E72CB51E2C001B36DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06B527EE2CB51E2C001B36DF;
+			remoteInfo = MangomMovie;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		06B5281E2CB53787001B36DF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -106,6 +129,13 @@
 		065670D52CBDF95500CF58CB /* DefaultDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailRepository.swift; sourceTree = "<group>"; };
 		065670D72CBDF95F00CF58CB /* DefaultSimilarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSimilarRepository.swift; sourceTree = "<group>"; };
 		065670D92CBF7D6800CF58CB /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
+		065670F72CBFE33400CF58CB /* MangomMovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangomMovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		065670F92CBFE33400CF58CB /* TrendingVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingVCTest.swift; sourceTree = "<group>"; };
+		065670FB2CBFE33400CF58CB /* MangomMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangomMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		065671062CBFE33A00CF58CB /* MangomMovieUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangomMovieUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		065671082CBFE33A00CF58CB /* MangomMovieUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangomMovieUnitTests.swift; sourceTree = "<group>"; };
+		0656710F2CBFE99900CF58CB /* SearchVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCTest.swift; sourceTree = "<group>"; };
+		065671112CBFEFF400CF58CB /* LikeVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeVCTest.swift; sourceTree = "<group>"; };
 		06B527EF2CB51E2C001B36DF /* MangomMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangomMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B527F22CB51E2C001B36DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B527F42CB51E2C001B36DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +185,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		065670F42CBFE33400CF58CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		065671032CBFE33A00CF58CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06B527EC2CB51E2C001B36DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,11 +216,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		065670F82CBFE33400CF58CB /* MangomMovieUITests */ = {
+			isa = PBXGroup;
+			children = (
+				065670F92CBFE33400CF58CB /* TrendingVCTest.swift */,
+				0656710F2CBFE99900CF58CB /* SearchVCTest.swift */,
+				065671112CBFEFF400CF58CB /* LikeVCTest.swift */,
+				065670FB2CBFE33400CF58CB /* MangomMovieUITestsLaunchTests.swift */,
+			);
+			path = MangomMovieUITests;
+			sourceTree = "<group>";
+		};
+		065671072CBFE33A00CF58CB /* MangomMovieUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				065671082CBFE33A00CF58CB /* MangomMovieUnitTests.swift */,
+			);
+			path = MangomMovieUnitTests;
+			sourceTree = "<group>";
+		};
 		06B527E62CB51E2C001B36DF = {
 			isa = PBXGroup;
 			children = (
 				06B528062CB51E4B001B36DF /* .gitignore */,
 				06B527F12CB51E2C001B36DF /* MangomMovie */,
+				065670F82CBFE33400CF58CB /* MangomMovieUITests */,
+				065671072CBFE33A00CF58CB /* MangomMovieUnitTests */,
 				06B527F02CB51E2C001B36DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -185,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				06B527EF2CB51E2C001B36DF /* MangomMovie.app */,
+				065670F72CBFE33400CF58CB /* MangomMovieUITests.xctest */,
+				065671062CBFE33A00CF58CB /* MangomMovieUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -466,6 +533,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		065670F62CBFE33400CF58CB /* MangomMovieUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 065670FF2CBFE33400CF58CB /* Build configuration list for PBXNativeTarget "MangomMovieUITests" */;
+			buildPhases = (
+				065670F32CBFE33400CF58CB /* Sources */,
+				065670F42CBFE33400CF58CB /* Frameworks */,
+				065670F52CBFE33400CF58CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				065670FE2CBFE33400CF58CB /* PBXTargetDependency */,
+			);
+			name = MangomMovieUITests;
+			productName = MangomMovieUITests;
+			productReference = 065670F72CBFE33400CF58CB /* MangomMovieUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		065671052CBFE33A00CF58CB /* MangomMovieUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0656710C2CBFE33A00CF58CB /* Build configuration list for PBXNativeTarget "MangomMovieUnitTests" */;
+			buildPhases = (
+				065671022CBFE33A00CF58CB /* Sources */,
+				065671032CBFE33A00CF58CB /* Frameworks */,
+				065671042CBFE33A00CF58CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0656710B2CBFE33A00CF58CB /* PBXTargetDependency */,
+			);
+			name = MangomMovieUnitTests;
+			productName = MangomMovieUnitTests;
+			productReference = 065671062CBFE33A00CF58CB /* MangomMovieUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		06B527EE2CB51E2C001B36DF /* MangomMovie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B528032CB51E2E001B36DF /* Build configuration list for PBXNativeTarget "MangomMovie" */;
@@ -503,6 +606,14 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					065670F62CBFE33400CF58CB = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 06B527EE2CB51E2C001B36DF;
+					};
+					065671052CBFE33A00CF58CB = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 06B527EE2CB51E2C001B36DF;
+					};
 					06B527EE2CB51E2C001B36DF = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -530,11 +641,27 @@
 			projectRoot = "";
 			targets = (
 				06B527EE2CB51E2C001B36DF /* MangomMovie */,
+				065670F62CBFE33400CF58CB /* MangomMovieUITests */,
+				065671052CBFE33A00CF58CB /* MangomMovieUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		065670F52CBFE33400CF58CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		065671042CBFE33A00CF58CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06B527ED2CB51E2C001B36DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,6 +675,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		065670F32CBFE33400CF58CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				065670FC2CBFE33400CF58CB /* MangomMovieUITestsLaunchTests.swift in Sources */,
+				065671122CBFEFF400CF58CB /* LikeVCTest.swift in Sources */,
+				065670FA2CBFE33400CF58CB /* TrendingVCTest.swift in Sources */,
+				065671102CBFE99900CF58CB /* SearchVCTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		065671022CBFE33A00CF58CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				065671092CBFE33A00CF58CB /* MangomMovieUnitTests.swift in Sources */,
+				065671132CBFF1EF00CF58CB /* LikeVCTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06B527EB2CB51E2C001B36DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -613,6 +760,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		065670FE2CBFE33400CF58CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06B527EE2CB51E2C001B36DF /* MangomMovie */;
+			targetProxy = 065670FD2CBFE33400CF58CB /* PBXContainerItemProxy */;
+		};
+		0656710B2CBFE33A00CF58CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06B527EE2CB51E2C001B36DF /* MangomMovie */;
+			targetProxy = 0656710A2CBFE33A00CF58CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		06B527FD2CB51E2E001B36DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -625,6 +785,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		065671002CBFE33400CF58CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9LS4YQCM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sixteenis.MangomMovieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MangomMovie;
+			};
+			name = Debug;
+		};
+		065671012CBFE33400CF58CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9LS4YQCM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sixteenis.MangomMovieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MangomMovie;
+			};
+			name = Release;
+		};
+		0656710D2CBFE33A00CF58CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9LS4YQCM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sixteenis.MangomMovieUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MangomMovie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MangomMovie";
+			};
+			name = Debug;
+		};
+		0656710E2CBFE33A00CF58CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G9LS4YQCM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sixteenis.MangomMovieUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MangomMovie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MangomMovie";
+			};
+			name = Release;
+		};
 		06B528012CB51E2E001B36DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -815,6 +1055,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		065670FF2CBFE33400CF58CB /* Build configuration list for PBXNativeTarget "MangomMovieUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				065671002CBFE33400CF58CB /* Debug */,
+				065671012CBFE33400CF58CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0656710C2CBFE33A00CF58CB /* Build configuration list for PBXNativeTarget "MangomMovieUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0656710D2CBFE33A00CF58CB /* Debug */,
+				0656710E2CBFE33A00CF58CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		06B527EA2CB51E2C001B36DF /* Build configuration list for PBXProject "MangomMovie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

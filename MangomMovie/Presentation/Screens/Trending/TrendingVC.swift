@@ -34,11 +34,10 @@ final class TrendingVC: BaseViewController {
     
     private let testArr = Observable.just([1,2,3,4,5,6,7,8,9,10])
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNav()
+        setUpaccessibilityIdentifier()
     }
     
     override func bindData() {
@@ -281,4 +280,17 @@ private extension TrendingVC {
         
     }
     
+}
+
+extension TrendingVC {
+    func setUpaccessibilityIdentifier() {
+        view.accessibilityIdentifier = "TrendingVC"
+        self.scrollView.accessibilityIdentifier = "TrendingScrollView"
+        playButton.accessibilityIdentifier = "playButton"
+        listButton.accessibilityIdentifier = "listButton"
+        nowMovieCollection.accessibilityIdentifier = "nowMovieCollection"
+        nowTVCollection.accessibilityIdentifier = "nowTVCollection"
+        navTVButton.accessibilityIdentifier = "navTVButton"
+        navSearchButton.accessibilityIdentifier = "navSearchButton"
+    }
 }

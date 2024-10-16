@@ -17,9 +17,11 @@ final class CustomAlert: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "CustomAlert"
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) { [weak self] in
             self?.alertView.transform = .identity
         }
+        
     }
     override func setUpHierarchy() {
         view.addSubview(alertView)

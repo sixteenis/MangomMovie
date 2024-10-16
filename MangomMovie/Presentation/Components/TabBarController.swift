@@ -23,19 +23,24 @@ final class TabBarController: UITabBarController {
         tabBar.standardAppearance = appearance
         tabBar.scrollEdgeAppearance = appearance
         
-        let Trending = TrendingVC()
-        let Search = SearchVC()
-        let Like = LikeVC()
+        let trendingVC = TrendingVC()
+        let searchVC = SearchVC()
+        let likeVC = LikeVC()
         
-        let TrendingNav = UINavigationController(rootViewController: Trending)
-        TrendingNav.tabBarItem = UITabBarItem(title: "Home", image: .ashome, tag: 0)
         
-        let SearchNav = UINavigationController(rootViewController: Search)
-        SearchNav.tabBarItem = UITabBarItem(title: "Top Search", image: .asSearch, tag: 1)
+        let trendingNav = UINavigationController(rootViewController: trendingVC)
+        trendingNav.tabBarItem = UITabBarItem(title: "Home", image: .ashome, tag: 0)
+        trendingNav.tabBarItem.accessibilityIdentifier = "trendingTab" 
         
-        let LikeNav = UINavigationController(rootViewController: Like)
-        LikeNav.tabBarItem = UITabBarItem(title: "Download", image: .asSmailing, tag: 2)
+        let searchNav = UINavigationController(rootViewController: searchVC)
+        searchNav.tabBarItem = UITabBarItem(title: "Top Search", image: .asSearch, tag: 1)
+        searchNav.tabBarItem.accessibilityIdentifier = "searchTab"
         
-        setViewControllers([TrendingNav, SearchNav, LikeNav], animated: false)
+        let likeNav = UINavigationController(rootViewController: likeVC)
+        likeNav.tabBarItem = UITabBarItem(title: "Download", image: .asSmailing, tag: 2)
+        likeNav.tabBarItem.accessibilityIdentifier = "likeTab"
+        
+        // 탭 바에 뷰 컨트롤러 설정
+        setViewControllers([trendingNav, searchNav, likeNav], animated: false)
     }
 }

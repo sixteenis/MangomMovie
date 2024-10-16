@@ -40,6 +40,7 @@ final class DetailVC: BaseViewController {
         scrollView.isScrollEnabled = true
         scrollView.alwaysBounceVertical = true
         recommendCollectionView.isScrollEnabled = false
+        view.accessibilityIdentifier = "DetailVC"
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

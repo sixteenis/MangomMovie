@@ -22,6 +22,7 @@ final class LikeVC: BaseViewController {
     private let removeIndex = PublishSubject<Int>()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAccessibilityIdentifier()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,7 +32,7 @@ final class LikeVC: BaseViewController {
         
         let input = LikeVM.Input(viewDidLoad: viewWill, removeItem: removeIndex)
         let output = vm.transform(input: input)
-
+        
         output.likeList
             .bind(to: likeTableView.rx.items(cellIdentifier: recommendTableViewCell.id, cellType: recommendTableViewCell.self)) { (tableView, item, element) in
                 element.selectionStyle = .none
@@ -88,7 +89,15 @@ extension LikeVC: UITableViewDelegate {
         delete.title = nil
         delete.image = .asTrsh
         delete.backgroundColor = .asRed
+        
         return UISwipeActionsConfiguration(actions:[delete])
     }
 }
 
+private extension LikeVC {
+    func setUpAccessibilityIdentifier() {
+        view.accessibilityIdentifier = "LikeVC"
+        genreLabel.accessibilityIdentifier = "genreLabel"
+        likeTableView.accessibilityIdentifier = "likeTableView"
+    }
+}
