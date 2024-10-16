@@ -37,6 +37,10 @@ final class LikeVC: BaseViewController {
                 element.selectionStyle = .none
                 element.setUpData(item)
             }.disposed(by: disposeBag)
+        likeTableView.rx.modelSelected(CompactMedia.self)
+            .bind(with: self) { owner, data in
+                self.presentDetatilView(model: data)
+            }.disposed(by: disposeBag)
         
     }
     // MARK: - 연결 부분
