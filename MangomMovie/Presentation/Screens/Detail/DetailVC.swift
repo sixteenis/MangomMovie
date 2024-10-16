@@ -13,7 +13,7 @@ import SnapKit
 
 final class DetailVC: BaseViewController {
     private let disposeBag = DisposeBag()
-    
+    var vm: DetailVM!
     private let xButton = UIButton()
     private let tvButton = UIButton()
     
@@ -33,7 +33,6 @@ final class DetailVC: BaseViewController {
     private lazy var recommendCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.recommendCollectionLayout())
     private let emptyView = UIView()
     
-    private var testArrs = Observable.just([1,2,3,4,5,6,7,8,9,10])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +56,22 @@ final class DetailVC: BaseViewController {
         }
     }
     override func bindData() {
-        //테스트용 임시 무비
-        testArrs
-            .bind(to: recommendCollectionView.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
-                
+        let input = DetailVM.Input(viewDidLoad: Observable.just(()), saveButtonTap: saveButton.rx.tap)
+        let output = vm.transform(input: input)
+        output.detailMedia
+            .bind(with: self) { owner, data in
+                owner.setUpData(data)
             }.disposed(by: disposeBag)
+        output.similarList
+            .bind(to: recommendCollectionView.rx.items(cellIdentifier: PosterCollectionCell.id, cellType: PosterCollectionCell.self)) { (row, element, cell) in
+                cell.setUpData(data: element)
+            }.disposed(by: disposeBag)
+        
+        output.showAlert
+            .bind(with: self) { owner, type in
+                self.showAlert(type: type)
+            }.disposed(by: disposeBag)
+        
         
         xButton.rx.tap
             .bind(with: self) { owner, _ in
@@ -225,20 +235,17 @@ final class DetailVC: BaseViewController {
         recommendCollectionView.showsVerticalScrollIndicator = false
         
         emptyView.backgroundColor = .asBackground
-        setUpData()
     }
     
 }
 // MARK: - 임시 데이터 세팅 부분
 private extension DetailVC {
-    func setUpData() {
-        poster.image = .test
-        asTitle.text = "인사이드 아웃2"
-        grade.text = "7.3"
-        content.text = """
-        13살이 된 라일리의 행복을 위해 매일 바쁘게 머릿속 감정 컨트롤 본부를 운영하는 ‘기쁨’, ‘슬픔’, ‘버럭’, ‘까칠’, ‘소심’. 그러던 어느 날, 낯선 감정인 ‘불안’, ‘당황’, ‘따분’, ‘부럽’이가 본부에 등장하고, 언제나 최악의 상황을 대비하며 제멋대로인 ‘불안’이와 기존 감정들은 계속 충돌한다. 결국 새로운 감정들에 의해 본부에서 쫓겨나게 된 기존 감정들은 다시 본부로 돌아가기 위해 위험천만한 모험을 시작하는데…
-        """
-        actorContent.text = "출연: 톰 홀로드 어쩌구 저쩌구인사람!"
+    func setUpData(_ data: DetailMedia) {
+        self.fetchImage(imageView: self.poster, imageURL: data.backdropImagePath)
+        asTitle.text = data.title
+        grade.text = data.grade
+        content.text = data.synopsis
+        actorContent.text = "출연: 톰 홀로드, 켄들 코인 스코필드, 바비 모이니핸"
     }
 }
 

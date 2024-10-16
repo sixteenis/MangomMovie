@@ -23,31 +23,21 @@ struct MovieDetailDTO: Decodable {
     }
 }
 extension MovieDetailDTO {
-//    func toDomain() -> DetailMedia {
-//        let result = DetailMedia(
-//            type: .movie,
-//            id: self.id,
-//            posterImagePath: self.posterPath ?? "",
-//            backdropImagePath: self.backdropPath ?? "",
-//            title: self.title,
-//            grade: self.rate.formatted(),
-//            synopsis: <#T##String#>,
-//            castList: <#T##[String]#>,
-//            creatorList: <#T##[String]#>)
-//    }
+    func toDomain() -> DetailMedia {
+        let grade = String(round(self.rate * 10) / 10)
+        let result = DetailMedia(
+            type: .movie,
+            id: self.id,
+            posterImagePath: self.posterPath ?? "",
+            backdropImagePath: self.backdropPath ?? "",
+            title: self.title,
+            grade: grade,
+            synopsis: overview ?? "",
+            castList: [""],
+            creatorList: [""])
+        return result
+    }
 }
-//struct DetailMedia {
-//    let type: MediaType
-//    let id: Int
-//    let posterImagePath: String
-//    let backdropImagePath: String
-//    let title: String
-//    let grade: String
-//    let synopsis: String
-//    let castList: [String]
-//    let creatorList: [String]
-//}
-
 struct TVDetailDTO: Decodable {
     let id: Int
     let name: String
@@ -61,5 +51,21 @@ struct TVDetailDTO: Decodable {
         case rate = "vote_average"
         case backdropPath = "backdrop_path"
         case posterPath = "poster_path"
+    }
+}
+extension TVDetailDTO {
+    func toDomain() -> DetailMedia {
+        let grade = String(round(self.rate * 10) / 10)
+        let result = DetailMedia(
+            type: .movie,
+            id: self.id,
+            posterImagePath: self.posterPath ?? "",
+            backdropImagePath: self.backdropPath ?? "",
+            title: self.name,
+            grade: grade,
+            synopsis: overview ?? "",
+            castList: [""],
+            creatorList: [""])
+        return result
     }
 }

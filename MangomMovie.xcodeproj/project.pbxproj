@@ -21,6 +21,7 @@
 		065670D42CBDF8FF00CF58CB /* DefaultSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670D32CBDF8FF00CF58CB /* DefaultSearchRepository.swift */; };
 		065670D62CBDF95500CF58CB /* DefaultDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670D52CBDF95500CF58CB /* DefaultDetailRepository.swift */; };
 		065670D82CBDF95F00CF58CB /* DefaultSimilarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670D72CBDF95F00CF58CB /* DefaultSimilarRepository.swift */; };
+		065670DA2CBF7D6800CF58CB /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065670D92CBF7D6800CF58CB /* DetailVM.swift */; };
 		06B527F32CB51E2C001B36DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F22CB51E2C001B36DF /* AppDelegate.swift */; };
 		06B527F52CB51E2C001B36DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B527F42CB51E2C001B36DF /* SceneDelegate.swift */; };
 		06B527FC2CB51E2E001B36DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B527FB2CB51E2E001B36DF /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 		065670D32CBDF8FF00CF58CB /* DefaultSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchRepository.swift; sourceTree = "<group>"; };
 		065670D52CBDF95500CF58CB /* DefaultDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailRepository.swift; sourceTree = "<group>"; };
 		065670D72CBDF95F00CF58CB /* DefaultSimilarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSimilarRepository.swift; sourceTree = "<group>"; };
+		065670D92CBF7D6800CF58CB /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
 		06B527EF2CB51E2C001B36DF /* MangomMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangomMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B527F22CB51E2C001B36DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B527F42CB51E2C001B36DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				06B528452CB6B73B001B36DF /* DetailVC.swift */,
+				065670D92CBF7D6800CF58CB /* DetailVM.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				065670B42CBBD63100CF58CB /* LikeVM.swift in Sources */,
 				CEED57E92CB7F2D3007D7487 /* DetailUseCase.swift in Sources */,
 				065670322CB7E7A100CF58CB /* UITextField+.swift in Sources */,
+				065670DA2CBF7D6800CF58CB /* DetailVM.swift in Sources */,
 				CCD50C5F2CBBA22100E9AF74 /* MediaSearchResultDTO.swift in Sources */,
 				CCD50C6F2CBBB20F00E9AF74 /* MediaDataSource.swift in Sources */,
 				CCD50C632CBBA47100E9AF74 /* SimilarMediaListDTO.swift in Sources */,

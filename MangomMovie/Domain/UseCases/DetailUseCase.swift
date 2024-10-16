@@ -19,7 +19,7 @@ final class DefaultDetailUseCase: DetailUseCase {
     private let similarRepository: SimilarRepository
     private let favoriteRepository: FavoriteRepository
     
-    init(detailRepository: DetailRepository, similarRepository: SimilarRepository, favoriteRepository: FavoriteRepository) {
+    init(detailRepository: DetailRepository = DefaultDetailRepository(), similarRepository: SimilarRepository = DefaultSimilarRepository(), favoriteRepository: FavoriteRepository = DefaultFavoriteRepository()) {
         self.detailRepository = detailRepository
         self.similarRepository = similarRepository
         self.favoriteRepository = favoriteRepository

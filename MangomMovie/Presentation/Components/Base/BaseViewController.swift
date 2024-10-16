@@ -45,6 +45,7 @@ extension BaseViewController {
 extension BaseViewController {
     func presentDetatilView(model: CompactMedia) {
         let vc = DetailVC()
+        vc.vm = DetailVM(compactMedia: model)
         present(vc, animated: true)
     }
 }
