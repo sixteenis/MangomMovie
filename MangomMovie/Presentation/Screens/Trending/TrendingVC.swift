@@ -40,7 +40,7 @@ final class TrendingVC: BaseViewController {
         super.viewDidLoad()
         setNav()
     }
-
+    
     override func bindData() {
         let viewDidLoad = Observable.just(())
         let saveButtonTap = listButton.rx.tap
@@ -49,11 +49,10 @@ final class TrendingVC: BaseViewController {
         let tvTap = self.nowTVCollection.rx.modelSelected(CompactMedia.self)
             .observe(on: MainScheduler.instance)
         let postTap = Observable.merge(movieTap, tvTap)
-
+        
         
         let input = TrendginVM.Input(viewDidLoad: viewDidLoad, saveButtonTap: saveButtonTap, posterTap: postTap)
         let output = vm.transform(input: input)
-        
         playButton.rx.tap
             .bind(with: self) { owner, _ in
                 print("플레이 버튼 누름")
@@ -82,8 +81,15 @@ final class TrendingVC: BaseViewController {
                 cell.setUpData(data: element)
             }.disposed(by: disposeBag)
         
+        navTVButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.moveTap(2)
+            }.disposed(by: disposeBag)
+        navSearchButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.moveTap(1)
+            }.disposed(by: disposeBag)
         
-            
     }
     private func setNav() {
         navTVButton.setTitle("", for: .normal)
@@ -121,6 +127,20 @@ final class TrendingVC: BaseViewController {
         self.scrollView.showsVerticalScrollIndicator = false
         setUpBigPostView()
         setUpCollectionView()
+    }
+}
+// MARK: - 네비게이션 부분
+private extension TrendingVC {
+    func moveTap(_ index: Int) {
+        guard let tabBarController = self.tabBarController else { return }
+        
+        // 해당 탭으로 이동
+        tabBarController.selectedIndex = index
+        
+//        // 네비게이션 스택을 초기화하고 싶은 경우:
+//        if let navController = tabBarController.viewControllers?[targetIndex] as? UINavigationController {
+//            navController.popToRootViewController(animated: true)
+//        }
     }
 }
 // MARK: - 큰 포스터 부분
