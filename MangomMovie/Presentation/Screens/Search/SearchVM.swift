@@ -14,7 +14,7 @@ final class SearchVM: BaseViewModel {
     struct Input {
         let viewDidLoad: Observable<Void>
         let searchText: ControlProperty<String>
-        
+        let pagination: ControlEvent<[IndexPath]>
     }
     struct Output {
         let trendMovieList: Observable<[CompactMedia]>
@@ -26,7 +26,7 @@ final class SearchVM: BaseViewModel {
         let nowState = BehaviorRelay(value: CollectionType.recommend)
         let trendMovieList = BehaviorRelay(value: [CompactMedia]())
         let searchMovieList = BehaviorRelay(value: [CompactMedia]())
-        
+        let searchText = BehaviorRelay(value: "")
         input.viewDidLoad
             .flatMap { self.useCase.fetchTrendMovieList()}
             .bind(with: self) { owner, item in
@@ -42,9 +42,11 @@ final class SearchVM: BaseViewModel {
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .filter {
                 if $0 == "" {
+                    searchMovieList.accept([CompactMedia]())
                     nowState.accept(.recommend)
                     return false
                 } else {
+                    searchText.accept($0)
                     nowState.accept(.search)
                     return true
                 }
@@ -58,7 +60,28 @@ final class SearchVM: BaseViewModel {
                     print(err)
                 }
             }.disposed(by: disposeBag)
-        
+        input.pagination
+            .map {
+                if nowState.value == .recommend {
+                    return false
+                }
+                for index in $0 {
+                    if index.item == searchMovieList.value.count - 2 { return true }
+                }
+                return false
+            }
+            .filter { $0 }
+            .flatMap { self.useCase.fetchSearchMovieList(keyword: searchText.value, isPagination: $0)}
+            .bind(with: self) { owner, response in
+                switch response {
+                case .success(let data):
+                    var befor = searchMovieList.value
+                    befor.append(contentsOf: data)
+                    searchMovieList.accept(befor)
+                case .failure(let err):
+                    print(err)
+                }
+            }.disposed(by: disposeBag)
             
         return Output(trendMovieList: trendMovieList.asObservable(), searchMovieList: searchMovieList.asObservable(), nowState: nowState.asObservable())
     }

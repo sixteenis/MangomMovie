@@ -28,7 +28,7 @@ final class SearchVC: BaseViewController {
         super.viewDidLoad()
     }
     override func bindData() {
-        let input = SearchVM.Input(viewDidLoad: Observable.just(()), searchText: searchView.rx.text.orEmpty)
+        let input = SearchVM.Input(viewDidLoad: Observable.just(()), searchText: searchView.rx.text.orEmpty, pagination:    searchCollection.rx.prefetchItems)
         let output = vm.transform(input: input)
         output.nowState
             .bind(with: self) { owner, state in
