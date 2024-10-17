@@ -29,7 +29,7 @@ final class TrendingVM: BaseViewModel {
     }
     
     func transform(input: Input) -> Output {
-        let bigPost = BehaviorRelay(value: CompactMedia())
+        let bigPost = ReplayRelay<CompactMedia>.create(bufferSize: 1)
         let movieList = BehaviorRelay(value: [CompactMedia]())
         let tvList = BehaviorRelay(value: [CompactMedia]())
         
@@ -64,8 +64,9 @@ final class TrendingVM: BaseViewModel {
             }.disposed(by: disposeBag)
         
         input.saveButtonTap
-            .bind(with: self) { owner, _ in
-                let result = owner.useCase.addFavoriteItem(bigPost.value)
+            .withLatestFrom(bigPost.asObservable())
+            .bind(with: self) { owner, data in
+                let result = owner.useCase.addFavoriteItem(data)
                 if result {
                     alert.accept(.save)
                 } else {
